@@ -3,6 +3,8 @@ import AppLayout from '../components/AppLayout';
 import { useForm } from 'react-hook-form';
 import FormError from '../components/FormError'
 import Button from '../components/Button'
+import { useState } from 'react';
+import Link from 'next/link';
 
 interface IcreateAccountForm {
     email: string;
@@ -14,20 +16,20 @@ interface IcreateAccountForm {
 
 
 const CreateAccount = () => {
+    const [loading, setLoading] = useState(true);
     const { register, handleSubmit, getValues, formState: { errors, isValid }, watch } = useForm<IcreateAccountForm>({
         mode: "onChange",
 
     });
-    console.log(errors);
     const onSubmit = () => {
-
+        const { email, password, address, phone } = getValues();
     }
     return (
-        <div className="bg-gray-800 w-full max-w-xl flex flex-col px-5 items-center">
-            <h4 className="text-blue-100 w-full font-medium text-center text-3xl mb-2 mt-2">
+        <div className="formWrapper">
+            <h4 className="formTitle">
                 WelCome
             </h4>
-            <form onSubmit={handleSubmit(onSubmit)} className="grid gap-3 mt-5 w-full mb-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="form">
                 <input
                     {...register("email", {
                         required: "Email is required",
@@ -100,11 +102,16 @@ const CreateAccount = () => {
                     <FormError errorMessage={errors.phone?.message} />
                 )}
                 <Button canClick={isValid}
-                    loading={false}
+                    loading={loading}
                     actionText={"Create Account"}
                 />
-
             </form>
+            <div className="mb-4">
+                <span className="text-gray-100">Already have an account?{" "}</span>
+                <Link href="/login">
+                    <a className="text-blue-600 hover:underline">Log in now</a>
+                </Link>
+            </div>
 
         </div>
     );
