@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "tailwind:build": "tailwind build ../styles/tailwind.css -o ../styles/styles.css"
   },
   "author": "lee",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.2",
+    "autoprefixer": "^9.8.6",
     "next": "^9.5.5",
+    "postcss": "^7.0.36",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.2"
   },
   "devDependencies": {
     "eslint": "^7.29.0",

@@ -3,7 +3,11 @@ import React from 'react';
 import AppLayout from '../components/AppLayout';
 const Home = () => {
     return (
-        <AppLayout>Hello, Next!</AppLayout>
+        <AppLayout>
+            <div className={"bg-yellow-700"}>
+                <h1 className="text-4xl text-red-400 mb-3">Hello, Next!</h1>
+            </div>
+        </AppLayout>
     )
 }
 
