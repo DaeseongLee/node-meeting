@@ -1,53 +1,21 @@
-import { HYDRATE } from "next-redux-wrapper"
+import { HYDRATE } from "next-redux-wrapper" //redux 서버사이드랜더링을 위해서 HYDATE를 사용한다.
+import { combineReducers } from "redux";
 
-const initialState = {
-    user: {
-        isLoggedIn: false,
-        user: null,
-        signUpData: {},
-        loginData: {},
-    },
-    post: {
-        mainPosts: [],
-    }
-}
-
-//action을 만드는 함수 changeNickname.   정보수정이 필요할 때 dispatch를 통해서 action을 생성해주면 된다. ex) store.dispatch(changeNickname('lee'))
-// const changeNickname = (data) => {
-//     return {
-//         type: 'CHANGE_NICKNAME',
-//         data
-//     }
-// }
-// store.dispatch(changeNickname('lee'))
-
-
-export const loginAction = (data) => {
-    return {
-        type: 'LOG_IN',
-        data,
-    }
-}
+import user from './user';
 
 
 //(이전상태, 액션) => 다음상태
-const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case HYDRATE:
-            return { ...state, ...action.payload };
-
-        case 'LOG_IN':
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    user: action.data,
-                    isLoggedIn: true,
-                }
-            }
-        default:
-            return state;
-    }
-}
+// const rootReducer = (state = initialState, action) => {
+const rootReducer = combineReducers({//combineReducers는 reducer끼리 합쳐준다.
+    index: (state = {}, action) => {
+        switch (action.type) {
+            case HYDRATE:
+                return { ...state, ...action.payload };
+            default:
+                return state;
+        }
+    },
+    user
+});
 
 export default rootReducer;

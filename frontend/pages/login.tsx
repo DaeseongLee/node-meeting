@@ -5,7 +5,7 @@ import Button from '../components/Button'
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
-import { loginAction } from '../reducers';
+import { loginAction } from '../reducers/user';
 
 interface IcreateAccountForm {
     email: string;
