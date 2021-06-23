@@ -1,9 +1,9 @@
 import React from 'react';
 
 interface IProps {
-    canClick: boolean;
-    loading: boolean;
-    actionText: string;
+    canClick?: boolean;
+    loading?: boolean;
+    actionText?: string;
 }
 
 const Button: React.FC<IProps> = ({ canClick, loading, actionText }) => {
