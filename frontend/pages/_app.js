@@ -7,6 +7,7 @@ import wrapper from '../store/configureStore';
 
 // pages에서 공통적으로 쓰는 것들을 여기서 사용하자. ex)css import해주자
 const App = ({ Component }) => {
+
     return (
         <div className="bg-red-800">
             <Head>

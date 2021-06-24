@@ -4,8 +4,9 @@ import FormError from '../components/FormError'
 import Button from '../components/Button'
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { loginAction } from '../reducers/user';
+
 
 interface IcreateAccountForm {
     email: string;
@@ -16,6 +17,7 @@ interface IcreateAccountForm {
 const Login = () => {
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
+    const { isLoggedIn } = useSelector((state: RootStateOrAny) => state.user);
 
     const { register, handleSubmit, getValues, formState: { errors, isValid } } = useForm<IcreateAccountForm>({
         mode: "onChange",
