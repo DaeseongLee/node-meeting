@@ -25,4 +25,8 @@
     @apply h-5 w-5 xl:ml-3 text-white
 }
 
+.icon{
+    @apply h-5 w-5 xl:ml-3
+}
+
 @tailwind utilities;
