@@ -54,7 +54,6 @@ const CreateAccount = () => {
         });
         setLoading(false);
     }
-    console.log(errors, isValid);
     return (
         <div className="formWrapper">
             <h4 className="formTitle">
@@ -144,7 +143,6 @@ const CreateAccount = () => {
                     <a className="text-blue-600 hover:underline">Log in now</a>
                 </Link>
             </div>
-
         </div>
     );
 };
