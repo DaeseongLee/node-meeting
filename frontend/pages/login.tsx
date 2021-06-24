@@ -1,11 +1,17 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
+
+import Link from 'next/link';
+import Router from 'next/router';
+
+import { loginAction } from '../reducers/user';
+
 import FormError from '../components/FormError'
 import Button from '../components/Button'
-import { useForm } from 'react-hook-form';
-import Link from 'next/link';
-import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
-import { loginAction } from '../reducers/user';
+
+
+
 
 
 interface IcreateAccountForm {
@@ -19,10 +25,16 @@ const Login = () => {
     const dispatch = useDispatch();
     const { isLoggedIn } = useSelector((state: RootStateOrAny) => state.user);
 
+    useEffect(() => {
+        if (isLoggedIn) {
+            Router.replace('/');
+        }
+    }, [isLoggedIn]);
+
     const { register, handleSubmit, getValues, formState: { errors, isValid } } = useForm<IcreateAccountForm>({
         mode: "onChange",
-
     });
+
     const onSubmit = () => {
         const { email, password } = getValues();
         dispatch(loginAction({ email, password }))

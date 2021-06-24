@@ -1,10 +1,13 @@
-import React from 'react';
-import AppLayout from '../components/AppLayout';
+import React, { useState, useEffect } from 'react';
+
 import { useForm } from 'react-hook-form';
+import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
+
+import Link from 'next/link';
+import Router from 'next/router';
+
 import FormError from '../components/FormError'
 import Button from '../components/Button'
-import { useState } from 'react';
-import Link from 'next/link';
 
 interface IcreateAccountForm {
     email: string;
@@ -16,14 +19,42 @@ interface IcreateAccountForm {
 
 
 const CreateAccount = () => {
-    const [loading, setLoading] = useState(true);
-    const { register, handleSubmit, getValues, formState: { errors, isValid }, watch } = useForm<IcreateAccountForm>({
-        mode: "onChange",
+    const [loading, setLoading] = useState(false);
+    const [passwordMatchesWhenSubmit, setPasswordMatchesWhenSubmit] = useState(true);
+    const { user } = useSelector((state: RootStateOrAny) => state.user);
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        if (user) {
+            alert('회원가입이 되었습니다');
+            Router.push('/login');
+        }
+    }, [user])
+
+    const { register, handleSubmit, getValues, formState: { errors, isValid }, watch, } = useForm<IcreateAccountForm>({
+        mode: "onChange",
     });
+
+
     const onSubmit = () => {
-        const { email, password, address, phone } = getValues();
+        const { email, password, passwordConfirm, address, phone } = getValues();
+        setLoading(true);
+        if (password !== passwordConfirm) {
+            setPasswordMatchesWhenSubmit(false);
+            return;
+        };
+        dispatch({
+            type: "CREATE_ACCOUNT",
+            data: {
+                email,
+                password,
+                address,
+                phone,
+            }
+        });
+        setLoading(false);
     }
+    console.log(errors, isValid);
     return (
         <div className="formWrapper">
             <h4 className="formTitle">
@@ -71,9 +102,10 @@ const CreateAccount = () => {
                     placeholder="passwordConfirm"
                     className="input"
                 />
-                {errors.passwordConfirm?.type === 'validate' && (
-                    <FormError errorMessage={'Password must match'} />
-                )}
+                {(errors.passwordConfirm?.type === 'validate')
+                    && (
+                        <FormError errorMessage={'Password must match'} />
+                    )}
 
                 <input
                     {...register("address", {
