@@ -2,6 +2,7 @@ import { HYDRATE } from "next-redux-wrapper" //redux 서버사이드랜더링을
 import { combineReducers } from "redux";
 
 import user from './user';
+import page from './page';
 
 
 //(이전상태, 액션) => 다음상태
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({//combineReducers는 reducer끼리 합쳐�
                 return state;
         }
     },
-    user
+    user,
+    page,
 });
 
 export default rootReducer;
