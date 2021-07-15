@@ -11,14 +11,10 @@ import FormError from '../components/FormError'
 import Button from '../components/Button'
 
 
-
-
-
 interface IcreateAccountForm {
     email: string;
     password: string;
 }
-
 
 const Login = () => {
     const [loading, setLoading] = useState(false);

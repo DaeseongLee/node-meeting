@@ -7,7 +7,6 @@ const MY_MEETING = 'MY_MEETING';
 const MORE = 'MORE';
 
 const reducer = (state = initialState, action) => {
-    console.log(action);
     switch (action.type) {
         case MAIN:
             return {

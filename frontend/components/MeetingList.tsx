@@ -13,7 +13,7 @@ const MeetingList = () => {
                         <MeetingItem key={as} />
                     )
                 })
-            };
+            }
         </div>
     )
 };

@@ -16,7 +16,6 @@ export const loginAction = (data) => {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(action);
     switch (action.type) {
         case LOG_IN:
             return {

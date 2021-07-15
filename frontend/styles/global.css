@@ -2,11 +2,11 @@
 @tailwind components;
 
 .input {
-  @apply focus:outline-none focus:border-gray-500 p-3 border-2  text-lg border-gray-200 transition-colors;
+  @apply focus:outline-none focus:border-gray-400 p-3 border-2  text-lg border-gray-200 transition-colors;
 }
 
 .formWrapper {
-    @apply bg-gray-800 w-full max-w-xl flex flex-col px-5 items-center mt-10 lg:mt-28 rounded-xl
+    @apply bg-gray-800 w-full max-w-xl flex flex-col px-5 items-center mt-4 lg:mt-10 rounded-xl
 }
 
 .form{
