@@ -121,7 +121,7 @@ const CreateAccount = () => {
                 )}
                 <input
                     {...register("phone", {
-                        required: "phone is requred",
+                        required: "Phone is requred",
                     })}
                     name="phone"
                     type="phone"

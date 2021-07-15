@@ -28,7 +28,8 @@ const CreateMeetingModal: React.FC<IProps> = ({ showModal }) => {
     });
 
     const onSubmit = () => {
-        const { title, description, img, category } = getValues();
+        const { title, description, img, category, userId } = getValues();
+        console.log(title, description, img, category, userId);
         dispatch({
             type: "ACTION"
         });

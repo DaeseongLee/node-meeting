@@ -10,7 +10,7 @@ const App = ({ Component }) => {
 
     return (
         <div className="bg-gray-200">
-            <div className="bg-blue-200 max-w-4xl m-auto rounded-xl">
+            <div className="max-w-4xl m-auto rounded-xl">
                 <Head>
                     <meta charSet="utf-8" />
                     <title>Meeting</title>
