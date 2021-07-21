@@ -1,7 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
 
-import Router from 'next/router';
+
+
 import MeetingItem from './MeetingItem';
+
 
 const MeetingList = () => {
 

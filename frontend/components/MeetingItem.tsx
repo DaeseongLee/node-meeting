@@ -1,12 +1,14 @@
 import React, { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 import { LocationMarkerIcon } from '@heroicons/react/solid'
 import { UserCircleIcon } from '@heroicons/react/solid'
 import { LoginIcon } from '@heroicons/react/outline'
 
 const MeetingItem = () => {
+    const router = useRouter();
     const enterBtnClick = useCallback(() => {
-
+        router.push('/meetingDetail?id=1');
     }, [])
     return (
         <div className="flex flex-col">
