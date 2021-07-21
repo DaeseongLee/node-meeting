@@ -38,10 +38,10 @@ const AppLayout: React.FC<MyProps> = ({ children }) => {
     }
     return (
         <>
-            <header className="text-gray-100 bg-gray-900 body-font shadow w-full rounded-xl">
+            <header className="text-gray-100 bg-gray-900 body-font shadow w-full rounded-xl mt-4">
                 <div className="container mx-auto p-5 flex justify-around ">
                     <nav className="flex justify-center w-full  text-base rounded-xl">
-                        <Link href=""><a className={"headerLink"} onClick={back}>←뒤로가기</a></Link>
+                        <Link href=""><a className={"headerLink"} onClick={back}>← 뒤로가기</a></Link>
                         <Link href=""><a className={"headerLink " + (pickColor("main"))} onClick={() => setCurrentPage("MAIN")}>정보 <IdentificationIcon className="headerIcon" /></a></Link>
                         <Link href=""><a className={"headerLink " + (pickColor("post"))} onClick={() => setCurrentPage("POST")}>게시판<ClipboardCheckIcon className="headerIcon" /></a></Link>
                         <Link href=""><a className={"headerLink " + (pickColor("album"))} onClick={() => setCurrentPage("ALBUM")}>사진첩 <PhotographIcon className="headerIcon" /></a></Link>

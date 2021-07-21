@@ -1,14 +1,14 @@
 import React from 'react';
 
-import MeetingDetailLayout from '../components/MeetingDetailLayout';
-import MeetingList from '../components/MeetingList';
+import MeetingDetailLayout from '../../components/MeetingDetailLayout';
+import MeetingInfo from './meetingInfo';
 
 
 const MeetingDetail = () => {
     return (
 
         <MeetingDetailLayout>
-            <h1>MeetingDetail</h1>
+            <MeetingInfo />
         </MeetingDetailLayout>
     );
 };

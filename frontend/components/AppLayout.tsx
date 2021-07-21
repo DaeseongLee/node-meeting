@@ -31,7 +31,7 @@ const AppLayout: React.FC<MyProps> = ({ children }) => {
     }, [currentPage])
     return (
         <>
-            <header className="text-gray-100 bg-gray-900 body-font shadow w-full rounded-xl">
+            <header className="text-gray-100 bg-gray-900 body-font shadow w-full rounded-xl mt-4">
                 <div className="container mx-auto p-5 flex justify-around ">
                     <nav className="flex justify-center w-full  text-base rounded-xl">
                         <Link href="/"><a className={"headerLink " + (pickColor("main"))} onClick={() => setCurrentPage("MAIN")}>모임's <SearchIcon className="headerIcon" /></a></Link>

@@ -23,27 +23,29 @@ const MyMeeting = () => {
         <>
             <AppLayout>
                 {!showModal ? (
-                    <div className="w-2/3 md:relative xl:relative">
-                        <button className="block mt-4 md:mt-0 xl:mt-0 px-4 py-2 mx-auto text-base rounded-full text-white  bg-indigo-500 md:absolute xl:absolute top-8 -right-36"
-                            onClick={toggleModal}>
-                            모임 만들기 +
-                        </button>
+                    <div className="wrapper">
+                        <div className="w-2/3 mx-auto md:relative xl:relative">
+                            <button className="block mt-4 md:mt-0 xl:mt-0 px-4 py-2 mx-auto text-base rounded-full text-white  bg-indigo-500 md:absolute xl:absolute top-1 -right-40"
+                                onClick={toggleModal}>
+                                모임 만들기 +
+                            </button>
 
 
-                        <div className="container mt-8 flex flex-col mx-auto justify-center bg-white dark:bg-gray-800 rounded-lg shadow">
-                            <h1 className="ml-4 text-2xl text-indigo-700">내 모임</h1>
-                            <hr />
-                            <ul className="flex flex-col divide divide-y">
-                                <MeetingListItem />
-                            </ul>
-                        </div>
+                            <div className="container mt-8 flex flex-col mx-auto justify-center bg-white dark:bg-gray-800 rounded-lg shadow">
+                                <h1 className="ml-4 text-2xl text-indigo-700">내 모임</h1>
+                                <hr />
+                                <ul className="flex flex-col divide divide-y">
+                                    <MeetingListItem />
+                                </ul>
+                            </div>
 
-                        <div className="container mt-8 flex flex-col mx-auto justify-center bg-red-300 rounded-lg shadow">
-                            <h1 className="ml-4 text-2xl text-indigo-700">내가 찜한 모임</h1>
-                            <hr />
-                            <ul className="flex flex-col divide divide-y">
-                                <MeetingListItem />
-                            </ul>
+                            <div className="container mt-8 flex flex-col mx-auto justify-center bg-red-300 rounded-lg shadow">
+                                <h1 className="ml-4 text-2xl text-indigo-700">내가 찜한 모임</h1>
+                                <hr />
+                                <ul className="flex flex-col divide divide-y">
+                                    <MeetingListItem />
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

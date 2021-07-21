@@ -8,7 +8,7 @@ import { LoginIcon } from '@heroicons/react/outline'
 const MeetingItem = () => {
     const router = useRouter();
     const enterBtnClick = useCallback(() => {
-        router.push('/meetingDetail?id=1');
+        router.push('/meetingDetail/meetingDetail?id=1');
     }, [])
     return (
         <div className="flex flex-col">

@@ -9,13 +9,13 @@ import wrapper from '../store/configureStore';
 const App = ({ Component }) => {
 
     return (
-        <div className="bg-gray-200">
+        <div className="bg-gray-200 h-full">
             <div className="max-w-4xl m-auto rounded-xl">
                 <Head>
                     <meta charSet="utf-8" />
                     <title>Meeting</title>
                 </Head>
-                <div className="h-screen w-full flex flex-col items-center">
+                <div className="h-full w-full flex flex-col items-center">
                     <Component />
                 </div>
             </div>
